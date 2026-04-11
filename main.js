@@ -8,12 +8,22 @@
     document.documentElement.classList.add("is-file-protocol");
   }
 
-  var formNext = document.querySelector('.lead-form input[name="_next"]');
-  if (formNext && /^https?:$/i.test(window.location.protocol)) {
+  var leadForm = document.querySelector(".lead-form");
+  if (leadForm && /^https?:$/i.test(window.location.protocol)) {
     try {
-      formNext.value = new URL("thank-you.html", window.location.href).href;
+      var pageUrl = new URL(window.location.href);
+      pageUrl.hash = "";
+      var urlField = leadForm.querySelector('input[name="_url"]');
+      if (urlField) {
+        urlField.value = pageUrl.href;
+      }
+      var next = document.createElement("input");
+      next.type = "hidden";
+      next.name = "_next";
+      next.value = new URL("thank-you.html", window.location.href).href;
+      leadForm.appendChild(next);
     } catch (e) {
-      /* keep empty → FormSubmit default thank-you page */
+      /* FormSubmit default thank-you if URL parsing fails */
     }
   }
 
