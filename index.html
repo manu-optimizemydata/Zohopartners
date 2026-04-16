@@ -273,5 +273,32 @@
   </footer>
 
   <script src="main.js"></script>
+  <script>
+        (function() {
+            var whatsapp_settings = {
+                buttonName: 'Start Chat',
+                brandImageUrl: '<span class="wapp-txtImg">O</span>',
+                brandName: 'Optimize My Data ',
+                brandStatusText: 'Typically replies within a day',
+                buttonSize: 'medium',
+                buttonPosition: 'bottom-right',
+                phoneNumber: '7892064440',
+                welcomeMessage: 'Welcome  to OMD !',
+                prefillMessages: 'I am looking for :',
+                replyOptions: 'Zoho Products ,Website and Digital Marketing '
+            };
+            var script = document.createElement('script');
+            script.src = 'https://oweb.zohowebstatic.com/sites/oweb/js/r/whatsapp-widget-generator.js';
+            script.async = true;
+            script.onload = function() {
+                if (typeof widget_whatsappButton === 'function') {
+                    widget_whatsappButton(whatsapp_settings);
+                } else {
+                    console.error('WhatsApp Widget function could not be found after script load.');
+                }
+            };
+            document.body.appendChild(script);
+        })();
+        </script>
 </body>
 </html>

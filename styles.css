@@ -324,6 +324,27 @@ html.is-file-protocol .file-protocol-note {
   display: block;
 }
 
+/* Zoho WhatsApp widget (force bottom-right) */
+.wapp-widgetGrp {
+  right: 15px !important;
+  left: auto !important;
+  bottom: 15px !important;
+  z-index: 9999999 !important;
+}
+
+.wapp-widgetGrp .wapp-float-btn.bottom-right {
+  align-items: flex-end !important;
+}
+
+@media (max-width: 450px) {
+  .wapp-widgetGrp {
+    width: auto !important;
+    right: 12px !important;
+    left: auto !important;
+    bottom: 12px !important;
+  }
+}
+
 .lead-form .lead-field {
   margin-bottom: 0.9rem;
 }
