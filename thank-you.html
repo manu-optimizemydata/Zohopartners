@@ -9,6 +9,14 @@
     gtag('js', new Date());
 
     gtag('config', 'G-74WN2DGVDY');
+
+    // Google Ads lead conversion (fires on thank-you page load).
+    // Replace with the exact values from Google Ads:
+    //   send_to: 'AW-XXXXXXXXXX/XXXXXXXXXXXXXXX'
+    gtag('config', 'AW-CONVERSION_ID');
+    gtag('event', 'conversion', {
+      'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL'
+    });
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
